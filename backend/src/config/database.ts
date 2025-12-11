@@ -7,18 +7,24 @@ import { User } from '../models/user.entity';
 
 config();
 
+const isProduction = !!process.env.DATABASE_URL;
+
 export const AppDataSource = new DataSource({
     type: 'postgres',
-    url: process.env.DATABASE_URL,
-    host: process.env.DB_HOST,
-    port: parseInt(process.env.DB_PORT || '5432'),
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE || process.env.DB_NAME,
+    ...(isProduction ? {
+        url: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }
+    } : {
+        host: process.env.DB_HOST || 'localhost',
+        port: parseInt(process.env.DB_PORT || '5432'),
+        username: process.env.DB_USERNAME || 'postgres',
+        password: process.env.DB_PASSWORD || 'postgres',
+        database: process.env.DB_DATABASE || process.env.DB_NAME || 'ticket_booking',
+        ssl: false
+    }),
     entities: [Show, Booking, Seat, User],
-    synchronize: true, // Ensure tables are created in production for this demo
-    logging: process.env.NODE_ENV === 'development',
-    ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
+    synchronize: true, // Auto-create tables for demo
+    logging: !isProduction
 });
 
 // Optional: immediately test connection
