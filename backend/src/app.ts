@@ -99,6 +99,10 @@ export class App {
                 })
             );
 
+            this.app.get('/', (req, res) => {
+                res.status(200).send('Ticket Booking System API is running 🚀');
+            });
+
             // Setup API routes
             controllers.forEach((controller) => {
                 this.app.use('/api', controller.router);
