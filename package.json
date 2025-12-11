@@ -5,8 +5,8 @@
   "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install --prefix backend && npm run build --prefix backend",
-    "start": "npm start --prefix backend"
+    "build": "cd backend && rm -rf node_modules && npm install && npm run build",
+    "start": "cd backend && npm start"
   },
   "repository": {
     "type": "git",
