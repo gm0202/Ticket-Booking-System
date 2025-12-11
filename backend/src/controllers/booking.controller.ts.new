@@ -1,0 +1,118 @@
+import { Request, Response, NextFunction } from 'express';
+import { AppDataSource } from '../config/database';
+import { Booking } from '../models/booking.entity';
+import { bookingService } from '../services/booking.service';
+
+class BookingController {
+    public router = require('express').Router();
+    private bookingRepository = AppDataSource.getRepository(Booking);
+
+    constructor() {
+        this.initializeRoutes();
+    }
+
+    private initializeRoutes() {
+        this.router.post('/', this.createBooking.bind(this));
+        this.router.get('/:id', this.getBookingById.bind(this));
+        this.router.put('/:id/cancel', this.cancelBooking.bind(this));
+        this.router.put('/:id/confirm', this.confirmBooking.bind(this));
+        this.router.get('/show/:showId', this.getBookingsByShow.bind(this));
+    }
+
+    private async createBooking(req: Request, res: Response, next: NextFunction) {
+        try {
+            const { showId, customerName, customerEmail, numSeats } = req.body;
+
+            // Validate input
+            if (!showId || !customerName || !customerEmail || !numSeats || numSeats <= 0) {
+                return res.status(400).json({ 
+                    success: false, 
+                    message: 'Invalid input. Please provide showId, customerName, customerEmail, and a positive numSeats.' 
+                });
+            }
+
+            const booking = await bookingService.createBooking(
+                showId,
+                customerName,
+                customerEmail,
+                numSeats
+            );
+
+            res.status(201).json({ 
+                success: true, 
+                data: booking,
+                message: 'Booking created. You have 2 minutes to confirm your booking.'
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    private async getBookingById(req: Request, res: Response, next: NextFunction) {
+        try {
+            const booking = await this.bookingRepository.findOne({
+                where: { id: req.params.id },
+                relations: ['show']
+            });
+            
+            if (!booking) {
+                return res.status(404).json({ 
+                    success: false, 
+                    message: 'Booking not found' 
+                });
+            }
+            
+            res.json({ 
+                success: true, 
+                data: booking 
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    private async confirmBooking(req: Request, res: Response, next: NextFunction) {
+        try {
+            const booking = await bookingService.confirmBooking(req.params.id);
+            res.json({ 
+                success: true, 
+                data: booking,
+                message: 'Booking confirmed successfully' 
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    private async cancelBooking(req: Request, res: Response, next: NextFunction) {
+        try {
+            const booking = await bookingService.cancelBooking(req.params.id);
+            res.json({ 
+                success: true, 
+                data: booking,
+                message: 'Booking cancelled successfully' 
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    private async getBookingsByShow(req: Request, res: Response, next: NextFunction) {
+        try {
+            const bookings = await this.bookingRepository.find({
+                where: { showId: req.params.showId },
+                order: { createdAt: 'DESC' },
+                relations: ['show']
+            });
+            
+            res.json({ 
+                success: true, 
+                data: bookings 
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+}
+
+export const bookingController = new BookingController();
