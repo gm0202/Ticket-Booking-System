@@ -24,8 +24,14 @@ Inspired by platforms like BookMyShow & RedBus, engineered to prevent **overbook
 
 
 
+
+
+
 ### ▶️ Pending Booking  
 ![Pending Booking](./assets/pending%20booking.gif)
+
+
+
 
 
 
@@ -34,8 +40,21 @@ Inspired by platforms like BookMyShow & RedBus, engineered to prevent **overbook
 
 
 
+
+
+
+
+
 ### ▶️ Updating Shows (Admin)  
 ![Updation](./assets/updation%20of%20shows.gif)
+
+
+
+
+
+
+
+
 
 ---
 
