@@ -1,8 +1,9 @@
 .app-shell {
-  min-height: 100vh;
+    min-height: 100vh;
+    background: #f8fafc;
 }
 
-/* Enhanced Glassmorphism Navbar */
+/* Navbar */
 .nav {
   position: sticky;
   top: 0;
@@ -156,12 +157,12 @@
 }
 
 .layout {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
 }
 
-/* Enhanced Hero Section */
+/* Hero */
 .hero {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px) saturate(180%);
@@ -241,7 +242,7 @@
   font-weight: 500;
 }
 
-/* Enhanced Table with Glassmorphism */
+/* Table */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -275,7 +276,11 @@
 }
 
 .table tr:last-child td {
-  border-bottom: none;
+    border-bottom: none;
+}
+
+.table tr:hover {
+    background: #f8fafc;
 }
 
 .table tr:hover {
@@ -342,7 +347,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Enhanced Callout */
+/* Callout */
 .callout {
   background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(16, 185, 129, 0.2));
   backdrop-filter: blur(15px);
