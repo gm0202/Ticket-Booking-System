@@ -13,14 +13,18 @@ A full-stack ticket booking system simulating platforms like RedBus or BookMySho
 - **API Documentation**: https://ticket-booking-system-production-10ea.up.railway.app/api-docs
 
 ---
-### 🎬 Demo 1
-![Demo 1](./assets/demo1.gif)
+### 🎬 Recording Demo
+![Recording](./assets/"Recording 2025-12-12 043511.gif")
 
-### 🎬 Demo 2
-![Demo 2](./assets/demo2.gif)
+### 🎬 Pending Booking
+![Pending Booking](./assets/"pending booking.gif")
 
-### 🎬 Demo 3
-![Demo 3](./assets/demo3.gif)
+### 🎬 Show Booking by User
+![Show Booking](./assets/"show booking by user.gif")
+
+### 🎬 Updation of Shows
+![Updation](./assets/"updation of shows.gif")
+
 
 
 ## 🚀 Features
