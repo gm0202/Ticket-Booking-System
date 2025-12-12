@@ -15,6 +15,9 @@ Inspired by platforms like BookMyShow & RedBus, engineered to prevent **overbook
 ### **API Docs (Swagger)**  
 ➡️ https://ticket-booking-system-production-10ea.up.railway.app/api-docs  
 
+### **Tutorial (YouTube)**  
+➡️ https://youtu.be/aSVVHMC6ZWs?si=7ivimR3kQQJjSdh0
+
 ---
 
 # 🎥 Demo Videos
