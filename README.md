@@ -7,7 +7,7 @@ Inspired by platforms like BookMyShow & RedBus, engineered to prevent **overbook
 ## 🌐 Live Deployment
 
 ### **Frontend (Vercel)**  
-➡️ https://ticket-booking-system-git-try-gaurangs-projects-1eb2dfac.vercel.app
+➡️ [https://ticket-booking-system-git-try-gaurangs-projects-1eb2dfac.vercel.app](https://ticket-booking-system-git-try-gaurangs-projects-1eb2dfac.vercel.app?_vercel_share=wMyESTbmh5pgjx4BEY4xAtVUGVASCl8H)
 
 ### **Backend (Railway)**  
 ➡️ https://ticket-booking-system-production-10ea.up.railway.app
@@ -225,6 +225,8 @@ For any suggestions or issues, please open an Issue or PR.
 
 # 👤 Author  
 **Gaurang Mishra**  
+Resume: https://drive.google.com/file/d/1wE2iq5rvwrocMorUw82wGEsEeYYxJMP0/view?usp=drive_link
+Portfolio: https://portfolio-vert-two-drx2p853tl.vercel.app/
 GitHub: https://github.com/gm0202  
-Frontend: https://ticket-booking-system-git-try-gaurangs-projects-1eb2dfac.vercel.app
+Frontend: [https://ticket-booking-system-git-try-gaurangs-projects-1eb2dfac.vercel.app](https://ticket-booking-system-git-try-gaurangs-projects-1eb2dfac.vercel.app?_vercel_share=wMyESTbmh5pgjx4BEY4xAtVUGVASCl8H)
 
